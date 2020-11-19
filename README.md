@@ -18,7 +18,8 @@ A school has created its timetable based on availability of six subject teachers
 
 ##Solution 1
 - Converted time table into class wise.
-
+ScreenShot: ![alt text](https://user-images.githubusercontent.com/22792502/99706474-1daf1400-2ac1-11eb-8224-42cb5e2d0aae.png)
 
 ##Solution 2
-- Assigned vacant teachers to free time slots 
+- Assigned vacant teachers to free time slots.
+ScreenShot: ![alt text](https://user-images.githubusercontent.com/22792502/99706552-3dded300-2ac1-11eb-8e39-8aa30248e9ce.png)
