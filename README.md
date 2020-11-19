@@ -9,7 +9,6 @@ A school has created its timetable based on availability of six subject teachers
 ## Requirements:
 - Node.js v11 or above.
 - Epxress
-- Nodemon
 
 
 # How to run
