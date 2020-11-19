@@ -21,7 +21,11 @@
     </style>
 </head>
 <body>
-<h2>6th class <%= classSchedule['6th'][2][0] %></h2>
+<br>
+<h2><u>Solution 2<u></h2>
+<br>
+<br>
+<h2>6th class</h2>
 <table>
     <tr>
         <th>--</th>
@@ -33,11 +37,11 @@
         <th>Saturday</th>
     </tr>
     <% for (var i =2; i <=10;  i++ ) { %>
-    <tr>
-        <% for(var j = 0 ; j<=6; j++){ %>
-        <td> <%= classSchedule['6th'][i][j] %></td>
-        <%  } %>
-    </tr>
+        <tr>
+            <% for(var j = 0 ; j<=6; j++){ %>
+                <td> <%= classSchedule['6th'][i][j] %></td>
+            <%  } %>
+        </tr>
     <%  } %>
 </table>
 <hr>

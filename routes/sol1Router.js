@@ -3,17 +3,30 @@ var router = express.Router();
 var {readCsvFile} = require('../services/CsvFileReader');
 const {convertCSVToMatrix} = require('../utilities/Utitlities');
 const classSchedule = require('../memorydb/class_schedule');
+const classSchedule2 = require('../memorydb/solution2');
 const teacherSchedule = require('../memorydb/teacher_schedule');
 /* GET users listing. */
-router.get('/load', async function (req, res, next) {
+router.get('/', async function (req, res, next) {
     const timeTable = await readAllTeachersSchedule();
     let timeTable2 = JSON.stringify(classSchedule)
 
     timeTable2 = timeTable2.replace(/null,null,null,null,null,null,null,null,null,null,null/gi, '')
    // console.log('timeTable2:----> ',timeTable2.replace(/[]/gi),'')
-    res.render('solution2', { classSchedule: JSON.parse(timeTable2) });
+    res.render('classTimeTable', { classSchedule: JSON.parse(timeTable2) });
     //res.send('test')
 });
+
+
+
+const cloneClassSchedule = (classMatrix) => {
+    for(let i = 0; i < classMatrix.length; i++){
+        for(let j = 0; j < classMatrix[i].length; j++){
+            solution2[i][j] = classMatrix[i][j];
+        }
+    }
+
+    return solution2;
+}
 
 const prefix = 'Teacher wise class timetable - ';
 const subjects = ['English', 'Hindi', 'Kannada', 'Science', 'Maths']
