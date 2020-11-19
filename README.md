@@ -14,3 +14,11 @@ A school has created its timetable based on availability of six subject teachers
 # How to run
 - Navigate inside ```timetable``` folder
 - Run command ``` npm start``` in cmd
+
+
+##Solution 1
+- Converted time table into class wise.
+
+
+##Solution 2
+- Assigned vacant teachers to free time slots 
