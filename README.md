@@ -12,7 +12,7 @@ A school has created its timetable based on availability of six subject teachers
 
 
 # How to run
-- Navigate inside ```timetable``` folder
+- Navigate inside ```Assignment``` folder
 - Run command ``` npm install``` in cmd then
 - Run command ``` npm start``` in cmd
 
