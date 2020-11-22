@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <style>
         table {
@@ -21,10 +24,16 @@
     </style>
 </head>
 <body>
+<a href="/" class="btn btn-info btn-lg">
+    <span class="glyphicon glyphicon-home"></span> Home
+</a>
 <br>
-<h2><u>Solution 2<u></h2>
+<h2><u>Solution 3 Extra teacher required: </u> <%= classSchedule2['teacherRequired']  %></h2>
+<hr>
+<hr>
+<h2><u>Solution 2</u></h2> &nbsp; &nbsp; &nbsp; &nbsp;
 <br>
-<br>
+<hr>
 <h2>6th class</h2>
 <table>
     <tr>
@@ -39,7 +48,7 @@
     <% for (var i =2; i <=10;  i++ ) { %>
         <tr>
             <% for(var j = 0 ; j<=6; j++){ %>
-                <td> <%= classSchedule['6th'][i][j] %></td>
+                <td> <%= classSchedule2['6th'][i][j] %></td>
             <%  } %>
         </tr>
     <%  } %>
@@ -59,7 +68,7 @@
     <% for (var i =2; i <=10;  i++ ) { %>
         <tr>
             <% for(var j = 0 ; j<=6; j++){ %>
-                <td> <%= classSchedule['7th'][i][j] %></td>
+                <td> <%= classSchedule2['7th'][i][j] %></td>
             <%  } %>
         </tr>
     <%  } %>
@@ -79,7 +88,7 @@
     <% for (var i =2; i <=10;  i++ ) { %>
         <tr>
             <% for(var j = 0 ; j<=6; j++){ %>
-                <td> <%= classSchedule['8th'][i][j] %></td>
+                <td> <%= classSchedule2['8th'][i][j] %></td>
             <%  } %>
         </tr>
     <%  } %>
@@ -99,7 +108,7 @@
     <% for (var i =2; i <=10;  i++ ) { %>
         <tr>
             <% for(var j = 0 ; j<=6; j++){ %>
-                <td> <%= classSchedule['9th'][i][j] %></td>
+                <td> <%= classSchedule2['9th'][i][j] %></td>
             <%  } %>
         </tr>
     <%  } %>
@@ -119,7 +128,7 @@
     <% for (var i =2; i <=10;  i++ ) { %>
         <tr>
             <% for(var j = 0 ; j<=6; j++){ %>
-                <td> <%= classSchedule['10th'][i][j] %></td>
+                <td> <%= classSchedule2['10th'][i][j] %></td>
             <%  } %>
         </tr>
     <%  } %>

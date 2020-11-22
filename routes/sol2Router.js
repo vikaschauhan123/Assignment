@@ -11,18 +11,20 @@ router.get('/', async function (req, res, next) {
 
     let clonedClassSchedule = cloneClassSchedule(classSchedule);
     reassignTeachersToFreeTime(clonedClassSchedule, teacherSchedule );
-    let timeTable2 = JSON.stringify(classSchedule)
+    let timeTable2 = JSON.stringify(classSchedule2)
 
     timeTable2 = timeTable2.replace(/null,null,null,null,null,null,null,null,null,null,null/gi, '')
    // console.log('timeTable2:----> ',timeTable2.replace(/[]/gi),'')
-    res.render('solution2', { classSchedule: JSON.parse(timeTable2) });
+    const newSchedule = JSON.parse(timeTable2);
+    const teacherRequired = calcFreePeriods(classSchedule2);
+    newSchedule['teacherRequired'] =  teacherRequired;
+    res.render('solution2', { classSchedule2: newSchedule });
     //res.send('test')
 });
 
-
 const reassignTeachersToFreeTime = (classSchedule) => {
     for(let klass in teacherSchedule){
-       console.log(teacherSchedule[klass]);
+       //console.log(teacherSchedule[klass]);
        for(let i =2; i < teacherSchedule[klass].length; i++){
            for(let j = 1; j <teacherSchedule[klass][i].length; j++ ){
                if(teacherSchedule[klass][i][j] !== "") continue;
@@ -33,27 +35,39 @@ const reassignTeachersToFreeTime = (classSchedule) => {
 }
 
 const assignTeacherToClass = (subject, dayIndex, timeslot) => {
-    console.log('subject: ',subject,' dayIndex: ', dayIndex, ' timeslot: ', timeslot);
+    //console.log('subject: ',subject,' dayIndex: ', dayIndex, ' timeslot: ', timeslot);
     let found = false;
     let breakpoint = 0;
+    let counter = 0;
     const classes = ['6th', '7th', '8th', '9th', '10th'];
-    while (!found && breakpoint<10){
-        const klass = classes[~~(classes.length * Math.random())];
-        if(!classSchedule[klass][timeslot][dayIndex]){
-            classSchedule[klass][timeslot][dayIndex]=subject;
+    for(let klass in classSchedule2){
+        counter= counter + 1;
+        if(!classSchedule2[klass][timeslot][dayIndex] && !classSchedule2[klass][timeslot].includes('co-teacher-'+subject)){
+            classSchedule2[klass][timeslot][dayIndex]= 'co-teacher-'+subject;
             teacherSchedule[subject][timeslot][dayIndex]=klass;
-            found = true;
-            breakpoint++;
+            break;
         }
     }
-    // for(let klass in classSchedule){
-    //     if(!classSchedule[klass][timeslot][dayIndex]){
-    //         classSchedule[klass][timeslot][dayIndex]=subject;
-    //         teacherSchedule[subject][timeslot][dayIndex]=klass;
-    //         break;
-    //     }
-    // }
 
+}
+
+const calcFreePeriods = (classSchedule123) => {
+    let teacherRequired = 0;
+    for(let klass in classSchedule123){
+        //console.log(classSchedule[klass]);
+        for(let i =2; i < classSchedule123[klass].length; i++){
+            let counter = 0;
+            for(let j = 1; j <=6; j++ ){
+                if(!classSchedule123[klass][i][j]) {
+                    counter = counter+1;
+                };
+            }
+            teacherRequired = teacherRequired > counter ? teacherRequired : counter;
+            console.log('Class: ', klass, ' teacher required: ', counter);
+        }
+    }
+    console.log('Teacher Required: ', teacherRequired);
+    return teacherRequired
 }
 
 const cloneClassSchedule = (classSchedule) => {
@@ -97,7 +111,6 @@ const convertToClassMatrix = async (subject, matrix) => {
         }
     }
 
-    // console.log('Hello Bro', classSchedule);
 }
 
 

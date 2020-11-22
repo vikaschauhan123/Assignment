@@ -6,3 +6,15 @@ body {
 a {
   color: #00B7FF;
 }
+.a-button {
+  display: block;
+  width: 125px;
+  height: auto;
+  background:#28A745;
+  padding: 10px;
+  text-align: center;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  line-height: 25px;
+}

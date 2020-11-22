@@ -7,7 +7,9 @@ const classSchedule2 = require('../memorydb/solution2');
 const teacherSchedule = require('../memorydb/teacher_schedule');
 /* GET users listing. */
 router.get('/', async function (req, res, next) {
-    const timeTable = await readAllTeachersSchedule();
+
+    await readAllTeachersSchedule();
+    console.log('type of: ', typeof classSchedule)
     let timeTable2 = JSON.stringify(classSchedule)
 
     timeTable2 = timeTable2.replace(/null,null,null,null,null,null,null,null,null,null,null/gi, '')
