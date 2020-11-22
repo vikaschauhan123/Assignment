@@ -23,4 +23,4 @@ ScreenShot: ![alt text](https://user-images.githubusercontent.com/22792502/99706
 
 ##Solution 2
 - Assigned vacant teachers to free time slots.
-ScreenShot: ![alt text](https://user-images.githubusercontent.com/22792502/99706552-3dded300-2ac1-11eb-8e39-8aa30248e9ce.png)
+ScreenShot: ![alt text](https://user-images.githubusercontent.com/22792502/99901225-05b2dc80-2cdb-11eb-8ea4-2697aa29928a.png)
